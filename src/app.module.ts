@@ -13,11 +13,11 @@ import { Borrows } from './entitys/borrows.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'aws-0-ap-southeast-1.pooler.supabase.com',
-      port: 6543,
-      username: 'postgres.kitboonpychptjrjbjum',
-      password: 'LF(b9pRCgEGmwEw',
-      database: 'postgres',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [Books, Member, Borrows],
       synchronize: true,
     }),
